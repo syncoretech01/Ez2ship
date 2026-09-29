@@ -1,0 +1,119 @@
+.cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.cursor.is-visible {
+  opacity: 1;
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}
+
+.cursor__ring,
+.cursor__dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  will-change: transform;
+}
+.cursor__dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: #fff;
+  mix-blend-mode: difference;
+  transition: opacity 0.3s, width 0.3s, height 0.3s;
+}
+.cursor__ring {
+  width: 0;
+  height: 0;
+}
+.cursor__disc {
+  position: absolute;
+  left: -48px;
+  top: -48px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1.5px solid #fff;
+  mix-blend-mode: difference;
+  transform: scale(0.42);
+  transition:
+    transform 0.55s var(--ease-out),
+    background-color 0.35s,
+    border-color 0.35s,
+    opacity 0.35s;
+}
+.cursor__label,
+.cursor__arrow {
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.cursor__arrow {
+  display: none;
+  font-size: 0.9rem;
+}
+
+.cursor[data-state='link'] .cursor__disc {
+  transform: scale(0.72);
+  background: #fff;
+}
+.cursor[data-state='link'] .cursor__dot {
+  opacity: 0;
+}
+
+.cursor[data-state='view'] .cursor__disc,
+.cursor[data-state='drag'] .cursor__disc,
+.cursor[data-state='label'] .cursor__disc {
+  transform: scale(1);
+  mix-blend-mode: normal;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+.cursor[data-state='view'] .cursor__label,
+.cursor[data-state='drag'] .cursor__label,
+.cursor[data-state='label'] .cursor__label,
+.cursor[data-state='drag'] .cursor__arrow {
+  opacity: 1;
+}
+.cursor[data-state='drag'] .cursor__arrow {
+  display: inline;
+}
+.cursor[data-state='view'] .cursor__dot,
+.cursor[data-state='drag'] .cursor__dot,
+.cursor[data-state='label'] .cursor__dot {
+  opacity: 0;
+}
+
+.cursor[data-state='hide'] .cursor__disc {
+  transform: scale(0);
+}
+.cursor[data-state='hide'] .cursor__dot {
+  opacity: 0;
+}
+
+.cursor.is-down .cursor__disc {
+  transform: scale(0.34);
+}
+.cursor.is-down[data-state='view'] .cursor__disc,
+.cursor.is-down[data-state='drag'] .cursor__disc,
+.cursor.is-down[data-state='label'] .cursor__disc {
+  transform: scale(0.88);
+}

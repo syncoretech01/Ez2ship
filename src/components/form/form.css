@@ -1,0 +1,211 @@
+.fld {
+  padding-top: 18px;
+}
+.fld__box {
+  position: relative;
+}
+.fld__input {
+  width: 100%;
+  height: 56px;
+  padding: 14px 0 8px;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.3s;
+}
+[data-theme='dark'] .fld__input {
+  border-bottom-color: rgba(243, 240, 234, 0.3);
+}
+.fld--area .fld__input {
+  height: auto;
+  min-height: 120px;
+  resize: vertical;
+  padding-top: 22px;
+  line-height: 1.5;
+}
+.fld__input[type='date'] {
+  min-height: 56px;
+}
+.fld__input::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+  cursor: pointer;
+}
+.fld__label {
+  position: absolute;
+  left: 0;
+  top: 18px;
+  font-size: 1.05rem;
+  color: var(--muted);
+  pointer-events: none;
+  transform-origin: left top;
+  transition:
+    transform 0.45s var(--ease-out),
+    color 0.3s;
+}
+[data-theme='dark'] .fld__label {
+  color: rgba(243, 240, 234, 0.6);
+}
+.fld__opt {
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+.fld__input:focus ~ .fld__label,
+.fld__input:not(:placeholder-shown) ~ .fld__label,
+.fld--select .fld__label,
+.fld__input[type='date'] ~ .fld__label {
+  transform: translateY(-26px) scale(0.78);
+}
+.fld__input:focus ~ .fld__label {
+  color: var(--blue);
+}
+.fld__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-out);
+}
+.fld__input:focus ~ .fld__line {
+  transform: scaleX(1);
+}
+.fld.is-err .fld__input {
+  border-bottom-color: var(--danger);
+}
+.fld.is-err .fld__label {
+  color: var(--danger);
+}
+.fld__msg {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.fld__msg--err {
+  color: var(--danger);
+}
+.fld--select .fld__input {
+  cursor: pointer;
+  padding-right: 28px;
+}
+.fld--select .fld__input option {
+  color: var(--ink);
+}
+.fld__chev {
+  position: absolute;
+  right: 4px;
+  top: 22px;
+  width: 9px;
+  height: 9px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Choice cards */
+.chg {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.chg__legend {
+  padding: 0;
+  margin-bottom: 14px;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.chg__grid {
+  display: grid;
+  gap: 10px;
+}
+.chg__opt {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-height: 92px;
+  padding: 18px 44px 18px 18px;
+  text-align: left;
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition:
+    box-shadow 0.35s,
+    background-color 0.35s,
+    color 0.35s,
+    transform 0.4s var(--ease-out);
+}
+.chg__opt:hover {
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+}
+.chg__opt:active {
+  transform: scale(0.98);
+}
+.chg__opt.is-on {
+  background: var(--navy);
+  color: var(--paper);
+  box-shadow: none;
+}
+.chg__icon {
+  display: block;
+  height: 38px;
+  margin-bottom: 4px;
+  color: var(--blue);
+}
+.chg__opt.is-on .chg__icon {
+  color: var(--blue-soft);
+}
+.chg__icon svg {
+  height: 100%;
+  width: auto;
+}
+.chg__title {
+  font-weight: 650;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+}
+.chg__text {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  opacity: 0.65;
+}
+.chg__radio {
+  position: absolute;
+  top: 18px;
+  right: 16px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1.5px var(--line-strong);
+  transition: box-shadow 0.35s;
+}
+.chg__opt.is-on .chg__radio {
+  box-shadow:
+    inset 0 0 0 5px var(--blue-soft),
+    inset 0 0 0 9px var(--navy);
+}
+.chg.is-err .chg__opt {
+  box-shadow: inset 0 0 0 1px rgba(216, 65, 47, 0.5);
+}
+
+@media (max-width: 640px) {
+  .chg__grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}

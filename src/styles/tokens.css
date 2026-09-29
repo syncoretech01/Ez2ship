@@ -1,0 +1,89 @@
+:root {
+  /* Palette */
+  --paper: #f3f0ea;
+  --paper-2: #e9e5dc;
+  --paper-3: #dedad0;
+  --white: #ffffff;
+  --ink: #0a1226;
+  --ink-2: #1b2440;
+  --navy: #0b1733;
+  --navy-2: #13224a;
+  --navy-3: #1c2f60;
+  --blue: #2446f5;
+  --blue-2: #3d5bff;
+  --blue-soft: #8fa1ff;
+  --blue-mist: #dfe4ff;
+  --muted: #5d6377;
+  --muted-2: #8a8f9f;
+  --line: rgba(10, 18, 38, 0.12);
+  --line-strong: rgba(10, 18, 38, 0.24);
+  --line-light: rgba(243, 240, 234, 0.16);
+  --danger: #d8412f;
+  --success: #1f9d6a;
+
+  --chrome: linear-gradient(
+    120deg,
+    #fbfbfa 0%,
+    #c8ccd3 18%,
+    #858c98 34%,
+    #eef0f3 50%,
+    #9ea4ae 66%,
+    #dfe2e6 82%,
+    #ffffff 100%
+  );
+  --chrome-dark: linear-gradient(
+    120deg,
+    #9ba3b4 0%,
+    #e9ecf2 22%,
+    #6d7587 40%,
+    #f5f6f8 56%,
+    #8a92a3 74%,
+    #d9dde5 100%
+  );
+
+  /* Type */
+  --f-display: 'Archivo Variable', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --f-serif: 'Instrument Serif', 'Times New Roman', serif;
+  --f-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  --fs-mega: clamp(4.2rem, 15.5vw, 17rem);
+  --fs-hero: clamp(3.4rem, 11vw, 12.5rem);
+  --fs-xxl: clamp(3rem, 8.4vw, 9.5rem);
+  --fs-xl: clamp(2.5rem, 6vw, 6.5rem);
+  --fs-l: clamp(2rem, 4.2vw, 4.4rem);
+  --fs-m: clamp(1.6rem, 2.6vw, 2.75rem);
+  --fs-s: clamp(1.25rem, 1.7vw, 1.6rem);
+  --fs-body-l: clamp(1.08rem, 1.25vw, 1.3rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9375rem;
+  --fs-mono: 0.75rem;
+
+  /* Layout */
+  --gutter: clamp(16px, 3.4vw, 56px);
+  --col-gap: clamp(12px, 1.6vw, 28px);
+  --maxw: 1680px;
+  --section: clamp(96px, 13vw, 208px);
+  --header-h: 84px;
+  --radius: 22px;
+  --radius-s: 12px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --header-h: 72px;
+    --radius: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --header-h: 64px;
+    --radius: 16px;
+    --fs-body: 1rem;
+  }
+}

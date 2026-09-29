@@ -1,0 +1,123 @@
+.cta {
+  position: relative;
+  background: var(--navy);
+}
+.cta__pin {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+.cta__scene {
+  position: absolute;
+  inset: 0;
+  background: var(--navy);
+}
+.cta__flow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.cta__content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px, 4vw, 52px);
+  padding: var(--header-h) var(--gutter) 40px;
+  text-align: center;
+  pointer-events: none;
+}
+.cta__content a {
+  pointer-events: auto;
+}
+.cta__title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 0.26em;
+  font-size: clamp(3.4rem, 12.5vw, 15rem);
+  line-height: 0.84;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+.cta__word {
+  display: inline-flex;
+  overflow: hidden;
+  padding: 0.05em 0;
+}
+.cta__ch {
+  --w: 118;
+  --g: 760;
+  --dx: 0em;
+  display: inline-block;
+  font-variation-settings: 'wdth' var(--w), 'wght' var(--g);
+  margin-inline: var(--dx);
+  will-change: transform;
+}
+.cta__ch--blue {
+  color: var(--blue-soft);
+}
+.cta__contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  color: rgba(243, 240, 234, 0.7);
+  font-size: 0.72rem;
+}
+.cta__contacts a:hover {
+  color: var(--white);
+}
+
+.cta__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.cta__cover {
+  fill: var(--paper);
+}
+.cta__pre {
+  position: absolute;
+  z-index: 3;
+  left: var(--gutter);
+  bottom: clamp(24px, 4vw, 56px);
+  color: var(--ink);
+  pointer-events: none;
+}
+.cta__pre-t {
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 760;
+  font-stretch: 112%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 8px 0 14px;
+}
+.cta__pre-hint {
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta__pre {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .cta__title {
+    font-size: 17vw;
+  }
+  .cta__contacts {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

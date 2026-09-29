@@ -1,0 +1,23 @@
+.colsl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(8px, 1vw, 16px);
+  height: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+.colsl__col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1vw, 16px);
+  will-change: transform;
+}
+.colsl__col:nth-child(2) {
+  margin-top: -18%;
+}
+.colsl__img {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-s);
+  flex-shrink: 0;
+}

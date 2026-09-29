@@ -1,0 +1,18 @@
+.badge {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.badge__name {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 118, 'wght' 820;
+  letter-spacing: -0.02em;
+}
+.badge__llc {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-variation-settings: 'wdth' 125, 'wght' 720;
+  letter-spacing: 0.42em;
+}

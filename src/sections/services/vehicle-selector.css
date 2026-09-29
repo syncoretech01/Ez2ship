@@ -1,0 +1,218 @@
+.vs {
+  background: var(--white);
+  padding-block: var(--section);
+}
+.vs__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(28px, 4vw, 72px);
+  align-items: start;
+}
+.vs__controls {
+  display: grid;
+  gap: 34px;
+}
+.vs__group {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.vs__legend {
+  color: var(--muted);
+  margin-bottom: 14px;
+  padding: 0;
+}
+.vs__opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.vs__opt {
+  display: grid;
+  gap: 2px;
+  text-align: left;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 1px transparent;
+  transition:
+    background-color 0.35s,
+    color 0.35s,
+    box-shadow 0.35s,
+    transform 0.4s var(--ease-out);
+}
+.vs__opt:hover {
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+}
+.vs__opt:active {
+  transform: scale(0.97);
+}
+.vs__opt.is-on {
+  background: var(--navy);
+  color: var(--paper);
+}
+.vs__opt-l {
+  font-weight: 620;
+  font-size: 0.98rem;
+}
+.vs__opt-h {
+  font-size: 0.74rem;
+  opacity: 0.6;
+}
+
+.vs__stage {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+  border-radius: var(--radius);
+  background: var(--paper);
+  overflow: hidden;
+}
+.vs__visual {
+  position: relative;
+  height: clamp(220px, 24vw, 340px);
+  display: grid;
+  place-items: end center;
+  padding: 0 8% 38px;
+  background:
+    radial-gradient(60% 70% at 50% 100%, rgba(36, 70, 245, 0.08), transparent 70%),
+    linear-gradient(180deg, var(--paper-2), var(--paper));
+  overflow: hidden;
+}
+.vs__svg {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 100%);
+  height: auto;
+  overflow: visible;
+}
+.vs__road {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  height: 2px;
+  background-image: linear-gradient(90deg, var(--line-strong) 50%, transparent 50%);
+  background-size: 36px 2px;
+  animation: vs-road 1.2s linear infinite;
+}
+@keyframes vs-road {
+  to {
+    background-position: -36px 0;
+  }
+}
+.vs__trailer {
+  position: absolute;
+  inset: 16% 4% 26px;
+  pointer-events: none;
+}
+.vs__trailer-roof,
+.vs__trailer-wall {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: var(--navy);
+  transition: transform 0.9s var(--ease-in-out), opacity 0.6s;
+}
+.vs__trailer-roof {
+  top: 0;
+  height: 14px;
+  border-radius: 10px 10px 0 0;
+  transform: translateY(-160%);
+  opacity: 0;
+}
+.vs__trailer-wall {
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(11, 23, 51, 0.12), rgba(11, 23, 51, 0.04));
+  border: 1.5px solid rgba(11, 23, 51, 0.35);
+  border-radius: 12px;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+.vs__stage.is-enclosed .vs__trailer-roof {
+  transform: none;
+  opacity: 1;
+}
+.vs__stage.is-enclosed .vs__trailer-wall {
+  transform: none;
+}
+
+.vs__result {
+  padding: clamp(22px, 2.6vw, 40px);
+  display: grid;
+  gap: 14px;
+}
+.vs__rec-k {
+  color: var(--blue);
+}
+.vs__rec {
+  font-size: clamp(2rem, 3.4vw, 3.4rem);
+  font-weight: 760;
+  font-stretch: 110%;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.vs__carrier {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.vs__pill {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: inset 0 0 0 1.5px var(--ink);
+}
+.vs__pill--enc {
+  background: var(--navy);
+  color: var(--paper);
+  box-shadow: none;
+}
+.vs__pill--intl {
+  background: var(--blue);
+  color: var(--white);
+  box-shadow: none;
+}
+.vs__reasons {
+  display: grid;
+  gap: 8px;
+  color: var(--ink-2);
+}
+.vs__reasons li {
+  position: relative;
+  padding-left: 22px;
+  line-height: 1.5;
+}
+.vs__reasons li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 10px;
+  height: 1.5px;
+  background: var(--blue);
+}
+.vs__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px 24px;
+  margin-top: 8px;
+}
+
+@media (max-width: 1024px) {
+  .vs__grid {
+    grid-template-columns: 1fr;
+  }
+  .vs__stage {
+    position: relative;
+    top: 0;
+  }
+}

@@ -1,0 +1,58 @@
+.dg__viewport {
+  overflow: hidden;
+  padding-inline: var(--gutter);
+  touch-action: pan-y;
+  user-select: none;
+  cursor: grab;
+}
+.dg__viewport.is-dragging {
+  cursor: grabbing;
+}
+.dg__track {
+  --skew: 0deg;
+  display: flex;
+  gap: clamp(12px, 1.4vw, 20px);
+  width: max-content;
+  will-change: transform;
+}
+.dg__card {
+  width: clamp(260px, 34vw, 560px);
+  flex-shrink: 0;
+  transform: skewX(var(--skew));
+  transition: transform 0.2s linear;
+}
+.dg__card:nth-child(3n + 2) {
+  width: clamp(220px, 26vw, 420px);
+  margin-top: clamp(24px, 4vw, 64px);
+}
+.dg__card .img {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-s);
+  pointer-events: none;
+}
+.dg__card:nth-child(3n + 2) .img {
+  aspect-ratio: 3 / 4;
+}
+.dg__card figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+}
+[data-theme='dark'] .dg__card figcaption {
+  color: rgba(243, 240, 234, 0.55);
+}
+.dg__bar {
+  margin: 28px var(--gutter) 0;
+  height: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+[data-theme='dark'] .dg__bar {
+  background: var(--line-light);
+}
+.dg__bar span {
+  display: block;
+  height: 100%;
+  background: var(--blue);
+  transform-origin: left;
+  transform: scaleX(0);
+}

@@ -1,0 +1,60 @@
+.nf {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  background: var(--paper);
+  padding-top: calc(var(--header-h) + 40px);
+  padding-bottom: 80px;
+}
+.nf__wrap {
+  display: grid;
+  gap: 28px;
+}
+.nf__code {
+  color: var(--blue);
+}
+.nf__road {
+  width: 100%;
+  height: clamp(60px, 8vw, 110px);
+  overflow: visible;
+}
+.nf__road-base,
+.nf__road-path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+.nf__road-base {
+  stroke: var(--line-strong);
+  stroke-width: 1.5;
+  stroke-dasharray: 8 10;
+}
+.nf__road-path {
+  stroke: var(--blue);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.nf__gap circle {
+  fill: var(--danger);
+}
+.nf__gap path {
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.nf__text {
+  max-width: 44ch;
+  color: var(--ink-2);
+}
+.nf__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.nf__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-top: 16px;
+  color: var(--muted);
+}

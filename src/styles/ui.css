@@ -1,0 +1,318 @@
+/* ---------- Image ---------- */
+.img {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--paper-2);
+}
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-out);
+  will-change: transform;
+}
+.img.is-loaded img {
+  opacity: 1;
+}
+
+/* ---------- Slice image ---------- */
+.slice {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-2);
+}
+.slice__part {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.slice__img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+/* ---------- Reveal text ---------- */
+.reveal-text {
+  visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-text {
+    visibility: visible;
+  }
+}
+
+/* ---------- Section label ---------- */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+}
+[data-theme='dark'] .section-label {
+  color: rgba(243, 240, 234, 0.6);
+}
+.section-label__index {
+  color: var(--blue);
+}
+[data-theme='dark'] .section-label__index {
+  color: var(--blue-soft);
+}
+.section-label__line {
+  width: 36px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* ---------- Clock ---------- */
+.clock {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.clock__colon {
+  animation: blink 2s steps(1) infinite;
+}
+.clock__z {
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+}
+@keyframes blink {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* ---------- Odometer ---------- */
+.odo {
+  display: inline-flex;
+  align-items: flex-start;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.odo__digit {
+  display: inline-block;
+  height: 1.12em;
+  overflow: hidden;
+}
+.odo__col {
+  display: flex;
+  flex-direction: column;
+}
+.odo__col > span {
+  height: 1.12em;
+  line-height: 1.12em;
+  display: block;
+  text-align: center;
+}
+.odo__sep {
+  display: inline-block;
+}
+
+/* ---------- Rail ---------- */
+.rail {
+  overflow: hidden;
+  width: 100%;
+}
+.rail__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+.rail__group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+/* ---------- FAQ ---------- */
+.faq {
+  border-top: 1px solid var(--line);
+}
+.faq__item {
+  border-bottom: 1px solid var(--line);
+}
+.faq--dark,
+.faq--dark .faq__item {
+  border-color: var(--line-light);
+}
+.faq__q {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 56px 1fr 40px;
+  align-items: center;
+  gap: 16px;
+  padding: 26px 0;
+  text-align: left;
+  font-size: var(--fs-s);
+  font-weight: 560;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+.faq__num {
+  color: var(--blue);
+}
+.faq--dark .faq__num {
+  color: var(--blue-soft);
+}
+.faq__qt {
+  transition: transform 0.5s var(--ease-out);
+}
+@media (hover: hover) {
+  .faq__q:hover .faq__qt {
+    transform: translateX(8px);
+  }
+}
+.faq__icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  transition: background-color 0.4s, border-color 0.4s, transform 0.6s var(--ease-out);
+}
+.faq--dark .faq__icon {
+  border-color: rgba(243, 240, 234, 0.3);
+}
+.faq__icon::before,
+.faq__icon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 1.5px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform 0.5s var(--ease-out);
+}
+.faq__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.faq__item.is-open .faq__icon {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+  transform: rotate(180deg);
+}
+.faq__item.is-open .faq__icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+.faq__a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.6s var(--ease-out);
+}
+.faq__item.is-open .faq__a {
+  grid-template-rows: 1fr;
+}
+.faq__a-inner {
+  overflow: hidden;
+}
+.faq__a p {
+  padding: 0 56px 30px 72px;
+  max-width: 820px;
+  color: var(--muted);
+  font-size: var(--fs-body-l);
+  line-height: 1.55;
+}
+.faq--dark .faq__a p {
+  color: rgba(243, 240, 234, 0.7);
+}
+@media (max-width: 640px) {
+  .faq__q {
+    grid-template-columns: 36px 1fr 36px;
+    gap: 10px;
+    padding: 22px 0;
+  }
+  .faq__icon {
+    width: 34px;
+    height: 34px;
+  }
+  .faq__a p {
+    padding: 0 0 24px 46px;
+  }
+}
+
+/* ---------- Tags ---------- */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  font-family: var(--f-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+[data-theme='dark'] .tag {
+  border-color: rgba(243, 240, 234, 0.25);
+}
+.tag::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--blue);
+}
+[data-theme='dark'] .tag::before {
+  background: var(--blue-soft);
+}
+
+/* ---------- Text link ---------- */
+.tlink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 560;
+}
+.tlink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: right;
+  transform: scaleX(1);
+  transition: transform 0.6s var(--ease-out);
+}
+@media (hover: hover) {
+  .tlink:hover::after {
+    animation: tlink-line 0.8s var(--ease-out);
+  }
+}
+@keyframes tlink-line {
+  0% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  45% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  46% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}

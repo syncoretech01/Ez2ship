@@ -1,0 +1,257 @@
+.qq {
+  background: var(--white);
+}
+.qq__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  gap: clamp(32px, 5vw, 96px);
+  align-items: center;
+}
+.qq__copy {
+  display: grid;
+  gap: 24px;
+}
+.qq__title .t-serif {
+  font-size: 1.04em;
+}
+.qq__lead {
+  max-width: 44ch;
+}
+.qq__form {
+  display: grid;
+  gap: 26px;
+  margin-top: 12px;
+}
+.qq__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 28px;
+}
+.qq__vehicles {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.qq__vehicles legend {
+  padding: 0;
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+.qq__opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.qq__opt {
+  --chg-bg: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 16px 0 10px;
+  border-radius: 999px;
+  background: var(--paper);
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition:
+    background-color 0.35s,
+    color 0.35s,
+    transform 0.4s var(--ease-out);
+}
+.qq__opt:active {
+  transform: scale(0.96);
+}
+.qq__opt-icon {
+  display: block;
+  width: 44px;
+  color: var(--blue);
+}
+.qq__opt-icon svg {
+  width: 100%;
+  height: auto;
+}
+.qq__opt.is-on {
+  --chg-bg: var(--navy);
+  background: var(--navy);
+  color: var(--paper);
+}
+.qq__opt.is-on .qq__opt-icon {
+  color: var(--blue-soft);
+}
+.qq__submit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin-top: 6px;
+}
+
+/* Route card */
+.qq__card {
+  position: relative;
+  border-radius: var(--radius);
+  background:
+    radial-gradient(70% 60% at 80% 0%, rgba(36, 70, 245, 0.35), transparent 70%),
+    linear-gradient(160deg, #13224a, #070d1d);
+  color: var(--paper);
+  padding: clamp(18px, 2.2vw, 30px);
+  overflow: hidden;
+  box-shadow: 0 40px 90px -50px rgba(11, 23, 51, 0.7);
+}
+.qq__card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: rgba(243, 240, 234, 0.55);
+  font-size: 0.64rem;
+}
+.qq__card.is-ready .qq__card-top span:last-child {
+  color: var(--blue-soft);
+}
+.qq__map {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+.qq__route-base,
+.qq__route {
+  fill: none;
+  stroke-linecap: round;
+}
+.qq__route-base {
+  stroke: rgba(243, 240, 234, 0.25);
+  stroke-width: 2;
+  stroke-dasharray: 3 9;
+}
+.qq__route {
+  stroke: var(--blue-soft);
+  stroke-width: 3.5;
+  stroke-dasharray: 0 10000;
+}
+.qq__truck rect {
+  fill: var(--paper);
+}
+.qq__truck .qq__truck-cab {
+  fill: var(--blue);
+}
+.qq__node circle {
+  fill: rgba(243, 240, 234, 0.35);
+  transition: fill 0.4s;
+}
+.qq__node .qq__pulse {
+  fill: none;
+  stroke: rgba(243, 240, 234, 0.2);
+  stroke-width: 1.5;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.qq__node.is-on circle {
+  fill: var(--blue-soft);
+}
+.qq__node--b.is-on circle {
+  fill: var(--paper);
+}
+.qq__node.is-on .qq__pulse {
+  fill: none;
+  stroke: currentColor;
+  animation: qq-pulse 2.2s var(--ease-out) infinite;
+}
+.qq__node.is-on {
+  color: var(--blue-soft);
+}
+.qq__node--b.is-on {
+  color: var(--paper);
+}
+@keyframes qq-pulse {
+  from {
+    transform: scale(0.4);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+.qq__labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 4px;
+}
+.qq__end {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.qq__end .t-mono {
+  color: var(--blue-soft);
+  font-size: 0.62rem;
+}
+.qq__end--b {
+  text-align: right;
+}
+.qq__code {
+  font-size: clamp(2rem, 3.6vw, 3.4rem);
+  font-weight: 800;
+  font-stretch: 120%;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.qq__place {
+  font-size: 0.86rem;
+  color: rgba(243, 240, 234, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 22ch;
+}
+.qq__end--b .qq__place {
+  margin-left: auto;
+}
+.qq__vehicle {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-light);
+}
+.qq__vehicle-in {
+  --chg-bg: #0f1c3f;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--blue-soft);
+  font-weight: 650;
+}
+.qq__vehicle-in svg {
+  width: 96px;
+  height: auto;
+}
+.qq__vehicle-in span {
+  color: var(--paper);
+  font-size: 1.1rem;
+}
+.qq__vehicle-empty {
+  color: rgba(243, 240, 234, 0.45);
+}
+
+@media (max-width: 1024px) {
+  .qq__grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .qq__row {
+    grid-template-columns: 1fr;
+  }
+  .qq__opt {
+    height: 44px;
+    font-size: 0.84rem;
+  }
+  .qq__opt-icon {
+    width: 36px;
+  }
+}

@@ -1,0 +1,116 @@
+.st {
+  position: relative;
+  padding-top: clamp(96px, 12vw, 180px);
+  padding-bottom: clamp(72px, 9vw, 140px);
+  background: var(--paper);
+  overflow: hidden;
+}
+.st__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  row-gap: 40px;
+  align-items: start;
+}
+.st__grid .section-label {
+  grid-column: 1 / span 3;
+  padding-top: 0.9em;
+}
+.st__text {
+  grid-column: 4 / span 9;
+  font-size: clamp(1.9rem, 3.6vw, 3.9rem);
+  font-weight: 560;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.st-word {
+  will-change: opacity;
+}
+.st__side {
+  grid-column: 4 / span 4;
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
+}
+.st__mc {
+  font-family: var(--f-display);
+  font-size: clamp(2.4rem, 4.4vw, 4.4rem);
+  font-weight: 300;
+  font-stretch: 118%;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  display: flex;
+  align-items: flex-start;
+}
+.st__mc .odo {
+  color: var(--blue);
+  font-weight: 700;
+}
+.st__note {
+  max-width: 40ch;
+}
+
+.st__rails {
+  margin-top: clamp(72px, 9vw, 140px);
+  display: grid;
+  gap: clamp(20px, 2.4vw, 36px);
+}
+.st__word {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding-right: 0.35em;
+  font-size: clamp(3rem, 8vw, 8.6rem);
+  font-weight: 760;
+  font-stretch: 118%;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--ink);
+}
+.st__word:nth-child(even) {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ink);
+}
+.st__star {
+  font-size: 0.35em;
+  color: var(--blue);
+  -webkit-text-stroke: 0;
+}
+.st__card {
+  position: relative;
+  width: clamp(220px, 24vw, 380px);
+  margin-right: clamp(12px, 1.4vw, 22px);
+}
+.st__card .img {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-s);
+}
+.st__card figcaption {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(243, 240, 234, 0.9);
+  font-size: 0.64rem;
+}
+
+@media (max-width: 1024px) {
+  .st__grid .section-label {
+    grid-column: 1 / -1;
+  }
+  .st__text {
+    grid-column: 1 / -1;
+  }
+  .st__side {
+    grid-column: 1 / span 8;
+  }
+}
+@media (max-width: 640px) {
+  .st__side {
+    grid-column: 1 / -1;
+  }
+}

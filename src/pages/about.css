@@ -1,0 +1,253 @@
+.ab {
+  background: var(--white);
+}
+.ab__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  gap: var(--col-gap);
+}
+.ab__side {
+  padding-top: 0.6em;
+}
+.ab__statement {
+  font-size: clamp(1.9rem, 3.6vw, 3.9rem);
+  font-weight: 560;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.ab__facts {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+  gap: clamp(24px, 4vw, 64px);
+  margin-top: clamp(48px, 6vw, 96px);
+  align-items: start;
+}
+.ab__mc {
+  display: grid;
+  gap: 10px;
+}
+.ab__mc-n {
+  display: flex;
+  align-items: flex-start;
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  font-weight: 300;
+  font-stretch: 118%;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.ab__mc-n .odo {
+  color: var(--blue);
+  font-weight: 720;
+}
+.ab__dl {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+.ab__row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.ab__row dt {
+  color: var(--muted);
+  padding-top: 3px;
+}
+.ab__row dd {
+  margin: 0;
+  font-weight: 540;
+}
+
+/* Offices split */
+.ofs {
+  background: var(--navy);
+  color: var(--paper);
+  padding-top: var(--section);
+  padding-bottom: clamp(16px, 2vw, 28px);
+}
+.ofs__head {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  row-gap: 24px;
+  margin-bottom: clamp(40px, 5vw, 72px);
+}
+.ofs__head .section-label {
+  grid-column: 1 / -1;
+}
+.ofs__head h2 {
+  grid-column: 1 / span 7;
+}
+.ofs__head .t-serif {
+  color: var(--blue-soft);
+}
+.ofs__lead {
+  grid-column: 8 / span 5;
+  align-self: end;
+  color: rgba(243, 240, 234, 0.75);
+}
+.ofs__split {
+  display: flex;
+  gap: clamp(10px, 1.2vw, 18px);
+  height: clamp(560px, 86vh, 860px);
+  padding-inline: clamp(10px, 1.6vw, 24px);
+}
+.ofs__panel {
+  position: relative;
+  flex: 1 1 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: flex-grow 1s var(--ease-out);
+}
+.ofs__panel.is-active {
+  flex-grow: 1.6;
+}
+.ofs__img {
+  position: absolute;
+  inset: 0;
+}
+.ofs__img img {
+  transition: transform 1.4s var(--ease-out);
+}
+.ofs__panel.is-active .ofs__img img {
+  transform: scale(1.05);
+}
+.ofs__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(11, 23, 51, 0.55) 0%, rgba(11, 23, 51, 0.05) 35%, rgba(11, 23, 51, 0.85) 100%);
+}
+.ofs__body {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(20px, 2.6vw, 40px);
+}
+.ofs__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.ofs__clock {
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  font-weight: 300;
+  font-stretch: 112%;
+  letter-spacing: -0.02em;
+}
+.ofs__city {
+  font-size: clamp(2.4rem, 4.6vw, 5.2rem);
+  font-weight: 800;
+  font-stretch: 116%;
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.ofs__region {
+  margin: 8px 0 18px;
+  color: rgba(243, 240, 234, 0.75);
+}
+.ofs__addr {
+  font-style: normal;
+  display: grid;
+  gap: 2px;
+  margin-bottom: 22px;
+  color: rgba(243, 240, 234, 0.85);
+}
+.ofs__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 22px;
+}
+.ofs__map {
+  font-size: 0.9rem;
+}
+.ofs__coords {
+  margin-top: 22px;
+  color: rgba(243, 240, 234, 0.55);
+}
+
+/* Principles */
+.pr {
+  background: var(--paper);
+}
+.pr__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(28px, 4vw, 72px);
+  align-items: center;
+}
+.pr__cols {
+  height: clamp(420px, 60vw, 760px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.pr__title {
+  margin: 24px 0 clamp(28px, 4vw, 48px);
+}
+.pr__list {
+  border-top: 1px solid var(--line);
+}
+.pr__item {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 16px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+.pr__n {
+  font-size: 2.6rem;
+  font-weight: 800;
+  font-stretch: 125%;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  color: var(--blue);
+}
+.pr__t {
+  font-size: var(--fs-s);
+  font-weight: 680;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.pr__d {
+  color: var(--muted);
+}
+
+@media (max-width: 1024px) {
+  .ab__grid,
+  .ab__facts,
+  .pr__grid {
+    grid-template-columns: 1fr;
+  }
+  .ofs__head h2,
+  .ofs__lead {
+    grid-column: 1 / -1;
+  }
+  .ofs__split {
+    flex-direction: column;
+    height: auto;
+  }
+  .ofs__panel {
+    min-height: 520px;
+  }
+  .pr__cols {
+    height: 420px;
+  }
+}
+@media (max-width: 640px) {
+  .ab__row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .ofs__panel {
+    min-height: 480px;
+  }
+  .pr__cols {
+    display: none;
+  }
+}

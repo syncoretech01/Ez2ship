@@ -1,0 +1,36 @@
+.svp__cols {
+  height: clamp(360px, 44vw, 640px);
+  border-radius: var(--radius);
+}
+.svp-faq {
+  background: var(--paper);
+}
+.svp-faq__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(28px, 4vw, 72px);
+  align-items: start;
+}
+.svp-faq__title {
+  margin-top: 24px;
+}
+@media (max-width: 1024px) {
+  .svp-faq__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Service gallery */
+.sdg {
+  background: var(--paper);
+  overflow: hidden;
+}
+.sdg--dark {
+  background: var(--navy);
+  color: var(--paper);
+}
+.sdg__head {
+  display: grid;
+  gap: 20px;
+  margin-bottom: clamp(32px, 4vw, 56px);
+}

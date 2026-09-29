@@ -1,0 +1,34 @@
+/* Kinetic title */
+.kt {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--f-display);
+  font-size: var(--kt-fs, 10vw);
+  line-height: 0.84;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.kt__line {
+  display: block;
+  overflow: hidden;
+  padding: 0.04em 0 0.05em;
+  white-space: nowrap;
+}
+.kt__inner {
+  display: inline-block;
+  font-size: inherit !important;
+}
+.kt__line--accent {
+  color: var(--blue);
+}
+.ph--dark .kt__line--accent {
+  color: var(--blue-soft);
+}
+.kt__ch {
+  --w: 112;
+  --g: 780;
+  display: inline-block;
+  font-variation-settings: 'wdth' var(--w), 'wght' var(--g);
+  will-change: transform;
+}
